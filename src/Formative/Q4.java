@@ -5,28 +5,22 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Q3 {
+public class Q4 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
         int cnt = 0;
-        int sum = 0;
-        double avg;
 
         while (true) {
             int input = Integer.parseInt(st.nextToken());
 
-            if (0 > input || input > 100) {
+            if (input == 0) {
                 break;
+            } else if (!(input % 3 == 0 || input % 5 == 0)) {
+                cnt++;
             }
-
-            cnt++;
-            sum += input;
         }
 
-        avg = (double) sum / cnt;
-
-        System.out.println("sum : " + sum);
-        System.out.printf("avg : %.1f", avg);
+        System.out.println(cnt);
     }
 }
